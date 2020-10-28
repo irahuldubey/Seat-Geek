@@ -53,14 +53,13 @@ internal final class DetailsViewModel {
                     }
                 case .failure(error: let error):
                     DispatchQueue.main.async {
-//                        self.delegate?.onFetchFailure(with: error?.displayError ?? "Error")"
+                        self.delegate?.onFetchFailure(with: error.displayError)
                     }
                 }
             }
         } catch _ {
-            
+            debugPrint("Unable to fetch event details")
         }
-        
     }
     
     private func isFavoriteEvent(identifier: String) -> Bool {

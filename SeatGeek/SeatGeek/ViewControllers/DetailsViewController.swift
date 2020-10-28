@@ -68,9 +68,9 @@ extension DetailsViewController {
     
     @IBAction func toogleFavoriteEvent() {
 
-        guard let detailsViewModel = detailsViewModel else { return }
-        
-        guard let eventSelected = self.selectedEventId else { return }
+        guard let detailsViewModel = detailsViewModel,
+            let eventSelected = self.selectedEventId
+            else { return }
         
         detailsViewModel.toggleFavorite(eventWith: eventSelected) { (isFavorited) in
             if isFavorited {
