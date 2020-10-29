@@ -81,7 +81,10 @@ public final class SGService: SGServiceAPI {
     
     public func fetchImage(with urlString: String, completionHandler completion: @escaping (Data?) -> ()) throws -> Void {
 
-        guard let url = URL.init(string: urlString) else { return }
+        guard let url = URL.init(string: urlString) else {
+            completion(nil)
+            return
+        }
         
         let urlRequest = URLRequest.init(url: url)
         
