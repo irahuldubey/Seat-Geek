@@ -21,6 +21,7 @@ Improvements -
 4. Optimization for pagination and prefetching API 
 5. Make the cache manager more Generic so that it can be used to save any data type rather than Data, as of now it deals on String as Key and Data as value
 6. Tweak the UI little better as per the specifications. 
+7. Add Unit and UI Tests
 
 Documentation of the API is available at http://platform.seatgeek.com/#events
 
