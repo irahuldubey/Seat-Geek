@@ -5,6 +5,12 @@ Problem Statement :
 
 Write a type ahead against the Seat Geek API. The type ahead should update a list of results as the search query changes. Results can be tapped to view them on a details screen.
 
+Instruction 
+
+1. XCode 11.3, 11.5, 12.0
+2. iOS Deployment target is 13.0
+3. Build for iPhone only
+
 Solution and Design
 
 1. This is an iOS application which uses Seat Geek events API, query API for home screen and event id API for the Details Screen.
