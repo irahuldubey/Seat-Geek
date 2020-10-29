@@ -12,7 +12,11 @@ import UIKit
 public final class ImageDownloadManager {
     
     //Create an instance of Seat Geek Service API
-    private var sgService: SGServiceAPI = SGService()
+    private let sgService: SGServiceAPI
+    
+    init(with sgService: SGServiceAPI = SGService()) {
+        self.sgService = sgService
+    }
     
     //Create a default Global Queue
     private let imageQueue = DispatchQueue.global()
