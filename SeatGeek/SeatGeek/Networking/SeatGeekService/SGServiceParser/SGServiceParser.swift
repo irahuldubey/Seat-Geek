@@ -10,13 +10,12 @@ import Foundation
 
 final class SGServiceParser {
     
+    // Date formatters are very expensive hence added with a static property
     private static var jsonDecoder: JSONDecoder = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-        
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .formatted(dateFormatter)
-        
         return decoder
     }()
     
@@ -30,7 +29,7 @@ final class SGServiceParser {
             let responseEvents = try SGServiceParser.jsonDecoder.decode(SGResponse.self, from: data)
             return responseEvents
         } catch {
-            print(error)
+            debugPrint("SGServiceParser: parse event JSON SGResponse")
             return nil
         }
     }
@@ -40,7 +39,7 @@ final class SGServiceParser {
                let responseEvents = try SGServiceParser.jsonDecoder.decode(SGEvent.self, from: data)
                return responseEvents
            } catch {
-               print(error)
+               debugPrint("SGServiceParser: parse event JSON SGEvent")
                return nil
            }
        }

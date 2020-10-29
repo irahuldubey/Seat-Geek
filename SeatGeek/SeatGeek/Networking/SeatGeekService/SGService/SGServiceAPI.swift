@@ -10,7 +10,7 @@ import Foundation
 
 public protocol SGServiceAPI {
   
-  func fetchEvent(withQuery queryString: String, pagination: Pagination, withCompletionHandler completion: @escaping (SGServiceResponse) -> ()) throws -> Void
+  func fetchEvent(withQuery queryString: String, pagination: Pagination, withCompletionHandler completion: @escaping (Result<SGResponse, SGServiceError>)-> ()) throws -> Void
   
   func fetchEventDetails(with eventId: String, withCompletionHandler completionHandler:  @escaping (Result<SGEvent, SGServiceError>) -> Void) throws -> Void
     

@@ -16,9 +16,9 @@ public final class SGService: SGServiceAPI {
     public init(with manager: RestServerManager = RestServerManager()) {
         serverManager = manager
     }
-    
-    public func fetchEvent(withQuery queryString: String, pagination: Pagination, withCompletionHandler completion: @escaping (SGServiceResponse) -> ()) throws {
-        
+
+    public func fetchEvent(withQuery queryString: String, pagination: Pagination, withCompletionHandler completion: @escaping (Result<SGResponse, SGServiceError>)-> ()) throws -> Void {
+
         guard queryString.count > 0 else { return }
         
         // cancel the previous task if the new task is fired
@@ -34,13 +34,13 @@ public final class SGService: SGServiceAPI {
             case .success(data: let data):
                 guard let data = data else { return }
                 let serviceResponse = SGServiceParser.parseEventsJSON(data: data)!
-                completion(.success(response: serviceResponse))            
+                completion(.success(serviceResponse))
             case .failure(error: let error):
                 if let nsError = error as NSError? {
                     let errorObj = SGServiceError.init(with: nsError.code, errorDescription: nsError.description)
-                    completion(.failure(error: errorObj))
+                    completion(.failure(errorObj))
                 } else {
-                    completion(.failure(error: SGServiceError.init(with: 0, errorDescription: "Unable to receive error message")))
+                    completion(.failure(SGServiceError.init(with: 0, errorDescription: "Unable to receive error message")))
                 }
             }
         }

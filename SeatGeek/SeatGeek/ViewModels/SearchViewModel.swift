@@ -109,13 +109,14 @@ internal final class SearchViewModel {
                     case .failure(let error):
                         self.isFetchInProgress = false
                         DispatchQueue.main.async {
-                            self.delegate?.onFetchFailure(with: error?.displayError ?? "")
+                            self.delegate?.onFetchFailure(with: error.displayError)
                         }
                     }
                 })
             }
             catch _ {
-                //Add to Logger Info
+                //Add to Logger Error
+                debugPrint("Search View Model: unable to fetch result for query \(query)")
             }
         }
     }
@@ -154,13 +155,14 @@ internal final class SearchViewModel {
                 case .failure(let error):
                     self.isFetchInProgress = false
                     DispatchQueue.main.async {
-                        self.delegate?.onFetchFailure(with: error?.displayError ?? "")
+                        self.delegate?.onFetchFailure(with: error.displayError)
                     }
                 }
             })
         }
         catch _ {
-            //Add to Logger Info
+            //Add to Logger Error
+            debugPrint("Search View Model: unable to fetch next results for query \(currentSearchText)")
         }
     }
     
@@ -189,10 +191,8 @@ internal final class SearchViewModel {
             return false
         }
         
-        if let value = cacheManager[identifier] {
-            if let isFav = try? JSONDecoder().decode(Bool.self, from: value) {
-                return isFav
-            }
+        if let value = cacheManager[identifier], let isFav = try? JSONDecoder().decode(Bool.self, from: value)  {
+            return isFav
         }
         
         return false

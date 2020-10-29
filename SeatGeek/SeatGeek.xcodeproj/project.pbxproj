@@ -32,7 +32,6 @@
 		BBA3EEB0254553300078F7A4 /* RestAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA3EEAF254553300078F7A4 /* RestAPIResponse.swift */; };
 		BBA3EEB32545538C0078F7A4 /* SGServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA3EEB22545538C0078F7A4 /* SGServiceAPI.swift */; };
 		BBA3EEB5254553A20078F7A4 /* SGService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA3EEB4254553A20078F7A4 /* SGService.swift */; };
-		BBA3EEB7254553E50078F7A4 /* SGServiceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA3EEB6254553E50078F7A4 /* SGServiceResponse.swift */; };
 		BBA3EEB92545546C0078F7A4 /* SGServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA3EEB82545546C0078F7A4 /* SGServiceError.swift */; };
 		BBA3EEBC2545549F0078F7A4 /* SGResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA3EEBB2545549F0078F7A4 /* SGResponse.swift */; };
 		BBA3EEC025455BCD0078F7A4 /* SGRequestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA3EEBF25455BCD0078F7A4 /* SGRequestHelper.swift */; };
@@ -98,7 +97,6 @@
 		BBA3EEAF254553300078F7A4 /* RestAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestAPIResponse.swift; sourceTree = "<group>"; };
 		BBA3EEB22545538C0078F7A4 /* SGServiceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGServiceAPI.swift; sourceTree = "<group>"; };
 		BBA3EEB4254553A20078F7A4 /* SGService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGService.swift; sourceTree = "<group>"; };
-		BBA3EEB6254553E50078F7A4 /* SGServiceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGServiceResponse.swift; sourceTree = "<group>"; };
 		BBA3EEB82545546C0078F7A4 /* SGServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGServiceError.swift; sourceTree = "<group>"; };
 		BBA3EEBB2545549F0078F7A4 /* SGResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGResponse.swift; sourceTree = "<group>"; };
 		BBA3EEBF25455BCD0078F7A4 /* SGRequestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGRequestHelper.swift; sourceTree = "<group>"; };
@@ -294,7 +292,6 @@
 				BBA3EECB2546087A0078F7A4 /* SGConfiguration */,
 				BBA3EECA2546084C0078F7A4 /* SGServiceParser */,
 				BBA3EEC9254608410078F7A4 /* SGServiceError */,
-				BBA3EEC8254608330078F7A4 /* SGServiceResponse */,
 				BBA3EEC7254608200078F7A4 /* SGService */,
 			);
 			path = SeatGeekService;
@@ -327,14 +324,6 @@
 				BBA3EEB4254553A20078F7A4 /* SGService.swift */,
 			);
 			path = SGService;
-			sourceTree = "<group>";
-		};
-		BBA3EEC8254608330078F7A4 /* SGServiceResponse */ = {
-			isa = PBXGroup;
-			children = (
-				BBA3EEB6254553E50078F7A4 /* SGServiceResponse.swift */,
-			);
-			path = SGServiceResponse;
 			sourceTree = "<group>";
 		};
 		BBA3EEC9254608410078F7A4 /* SGServiceError */ = {
@@ -530,7 +519,6 @@
 				BB5C53B82544F5730023C843 /* RestConfiguration.swift in Sources */,
 				BBBED31A25494457007A3FF1 /* ImageDownloadManager.swift in Sources */,
 				BB765A8A2546149D00EA7981 /* Debouncer.swift in Sources */,
-				BBA3EEB7254553E50078F7A4 /* SGServiceResponse.swift in Sources */,
 				BBA3EED4254609E90078F7A4 /* SGServiceErrorCodes.swift in Sources */,
 				BBA3EECE254609110078F7A4 /* SGEvent.swift in Sources */,
 				BB765A902546941C00EA7981 /* Constants.swift in Sources */,
