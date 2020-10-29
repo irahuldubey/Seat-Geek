@@ -34,9 +34,10 @@ final class SGSearchViewController: UITableViewController, ActivityIndicatorProt
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = SGSearchViewModel(delegate: self)
-        setUpView()
-        setUpNavigationAndSearchBar()
+        
+        self.viewModel = SGSearchViewModel(delegate: self)
+        self.setUpView()
+        self.setUpNavigationAndSearchBar()
     }
     
     private func setUpView() {
@@ -45,19 +46,19 @@ final class SGSearchViewController: UITableViewController, ActivityIndicatorProt
     }
     
     private func setUpNavigationAndSearchBar() {
-        navigationItem.searchController = searchController
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.hidesSearchBarWhenScrolling = false
-        navigationController?.navigationItem.largeTitleDisplayMode = .automatic
-        definesPresentationContext = true
+        self.navigationItem.searchController = searchController
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationItem.hidesSearchBarWhenScrolling = false
+        self.navigationController?.navigationItem.largeTitleDisplayMode = .automatic
+        self.definesPresentationContext = true
     }
     
     // MARK: - Button Action
     private func clearSearchResults() {
-        searchController.searchBar.text = nil
-        viewModel.removeAllEvents()
+        self.searchController.searchBar.text = nil
+        self.viewModel.removeAllEvents()
         self.tableView.reloadData()
-        searchController.searchBar.resignFirstResponder()
+        self.searchController.searchBar.resignFirstResponder()
     }
 }
 
@@ -74,7 +75,7 @@ extension SGSearchViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.totalSearchResultCount
+        return self.viewModel.totalSearchResultCount
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -97,7 +98,7 @@ extension SGSearchViewController {
 extension SGSearchViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let indexValue = viewModel.event(at: indexPath.row)
-        performSegue(withIdentifier: SegueIdentifiers.detail, sender: indexValue)
+        self.performSegue(withIdentifier: SegueIdentifiers.detail, sender: indexValue)
     }
     
 }
@@ -106,7 +107,7 @@ extension SGSearchViewController {
 extension SGSearchViewController:  UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        loadSearchResults(text: searchBar.text!)
+        self.loadSearchResults(text: searchBar.text!)
     }
 }
 
@@ -135,12 +136,12 @@ extension SGSearchViewController: SGSearchViewModelDelegate, SGAlertAction {
     
     func loadSearchResults(text: String?) {
         guard let searchText = text, searchText.count > 0 else {
-            clearSearchResults()
+            self.clearSearchResults()
             return
         }
-        showLoadingIndicator(withSize: CGSize.init(width: 80, height: 80))
+        self.showLoadingIndicator(withSize: CGSize.init(width: 80, height: 80))
         self.currentSearchText = searchText
-        viewModel.fetchResults(for: searchText)
+        self.viewModel.fetchResults(for: searchText)
     }
 }
 
@@ -149,14 +150,14 @@ extension SGSearchViewController: UITableViewDataSourcePrefetching {
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         if indexPaths.contains(where: isLoadingCell), viewModel.currentCount > 0 {
             if !currentSearchText.isEmpty {
-                viewModel.loadMoreResultsOnPagination()
+                self.viewModel.loadMoreResultsOnPagination()
             }
         }
     }
     
     func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
         // This can be optimized more but temp just cancel the request which happens when the user scrolls up
-        viewModel.cancelFetch()
+        self.viewModel.cancelFetch()
     }
 }
 
