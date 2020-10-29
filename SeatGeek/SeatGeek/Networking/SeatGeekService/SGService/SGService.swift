@@ -30,17 +30,21 @@ public final class SGService: SGServiceAPI {
         
         // make an http request
         apiServiceTask = serverManager.makeServiceRequest(withUrlRequest: urlRequest) { (result) in
+            let genericError = SGServiceError.init(with: 0, errorDescription: "Unable to receive error message")
             switch result {
             case .success(data: let data):
                 guard let data = data else { return }
-                let serviceResponse = SGServiceParser.parseEventsJSON(data: data)!
-                completion(.success(serviceResponse))
+                if let serviceResponse = SGServiceParser.parseEventsJSON(data: data) {
+                    completion(.success(serviceResponse))
+                } else {
+                    completion(.failure(genericError))
+                }
             case .failure(error: let error):
                 if let nsError = error as NSError? {
                     let errorObj = SGServiceError.init(with: nsError.code, errorDescription: nsError.description)
                     completion(.failure(errorObj))
                 } else {
-                    completion(.failure(SGServiceError.init(with: 0, errorDescription: "Unable to receive error message")))
+                    completion(.failure(genericError))
                 }
             }
         }
@@ -55,11 +59,15 @@ public final class SGService: SGServiceAPI {
         guard let urlRequest = SGRequestHelper.eventDetails(with: eventId) else { return }
         
         apiServiceTask = serverManager.makeServiceRequest(withUrlRequest: urlRequest, completionHandler: { (result) in
+            let genericError = SGServiceError.init(with: 0, errorDescription: "Unable to receive error message")
             switch result {
             case .success(data: let data):
                 guard let data = data else { return }
-                let serviceResponse = SGServiceParser.parseEventJSON(data: data)!
-                completionHandler(.success(serviceResponse))
+                if let serviceResponse = SGServiceParser.parseEventJSON(data: data) {
+                    completionHandler(.success(serviceResponse))
+                } else {
+                    completionHandler(.failure(genericError))
+                }
             case .failure(error: let error):
                 if let nsError = error as NSError? {
                     let errorObj = SGServiceError.init(with: nsError.code, errorDescription: nsError.description)

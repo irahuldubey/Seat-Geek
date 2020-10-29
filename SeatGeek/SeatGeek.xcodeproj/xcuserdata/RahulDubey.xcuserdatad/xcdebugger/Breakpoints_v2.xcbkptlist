@@ -3,4 +3,150 @@
    uuid = "88772C72-CE3F-44FB-9A15-E582D584476A"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BB8C0008-2DEC-458A-8971-AC11D237819F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SeatGeek/Networking/SeatGeekService/SGService/SGService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "fetchEvent(withQuery:pagination:withCompletionHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "BB8C0008-2DEC-458A-8971-AC11D237819F - eee2d7f6ee7c8ca3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SeatGeek.SGService.fetchEvent(withQuery: Swift.String, pagination: SeatGeek.Pagination, withCompletionHandler: (Swift.Result&lt;SeatGeek.SGResponse, SeatGeek.SGServiceError&gt;) -&gt; ()) throws -&gt; ()"
+                  moduleName = "SeatGeek"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/RahulDubey/Documents/Projects/SeatGeek/SeatGeek/SeatGeek/Networking/SeatGeekService/SGService/SGService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "746">
+               </Location>
+               <Location
+                  uuid = "BB8C0008-2DEC-458A-8971-AC11D237819F - 575a7788b6fd2fa8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (SeatGeek.RestResult) -&gt; () in SeatGeek.SGService.fetchEvent(withQuery: Swift.String, pagination: SeatGeek.Pagination, withCompletionHandler: (Swift.Result&lt;SeatGeek.SGResponse, SeatGeek.SGServiceError&gt;) -&gt; ()) throws -&gt; ()"
+                  moduleName = "SeatGeek"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/RahulDubey/Documents/Projects/SeatGeek/SeatGeek/SeatGeek/Networking/SeatGeekService/SGService/SGService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "456">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BAF64E2D-B0F9-4D6D-92EA-B582F270F903"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SeatGeek/ViewModels/SearchViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
+            landmarkName = "fetchResults(for:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "BAF64E2D-B0F9-4D6D-92EA-B582F270F903 - 52bb917744ba68e2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;SeatGeek.SGResponse, SeatGeek.SGServiceError&gt;) -&gt; () in closure #1 () -&gt; () in SeatGeek.SearchViewModel.fetchResults(for: Swift.String) -&gt; ()"
+                  moduleName = "SeatGeek"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/RahulDubey/Documents/Projects/SeatGeek/SeatGeek/SeatGeek/ViewModels/SearchViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "106"
+                  endingLineNumber = "106"
+                  offsetFromSymbolStart = "872">
+               </Location>
+               <Location
+                  uuid = "BAF64E2D-B0F9-4D6D-92EA-B582F270F903 - a56867071819e43c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 (Swift.Result&lt;SeatGeek.SGResponse, SeatGeek.SGServiceError&gt;) -&gt; () in closure #1 () -&gt; () in SeatGeek.SearchViewModel.fetchResults(for: Swift.String) -&gt; ()"
+                  moduleName = "SeatGeek"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/RahulDubey/Documents/Projects/SeatGeek/SeatGeek/SeatGeek/ViewModels/SearchViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "107"
+                  endingLineNumber = "107"
+                  offsetFromSymbolStart = "49">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F2F901FE-45A8-4D9B-93BF-FECD2033022C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SeatGeek/ViewModels/SearchViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
+            landmarkName = "loadMoreResultsOnPagination()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "09777520-9218-4DE3-848E-55C84895F536"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SeatGeek/ViewModels/SearchViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "loadMoreResultsOnPagination()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "323B7286-1C88-4BA5-842C-B43A3071F320"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SeatGeek/ViewModels/SearchViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "fetchResults(for:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
