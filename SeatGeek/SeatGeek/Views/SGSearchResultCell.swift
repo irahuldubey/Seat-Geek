@@ -63,15 +63,3 @@ public final class SGSearchResultCell: UITableViewCell {
         }
     }
 }
-
-// MARK: isFavorite
-extension SGSearchResultCell {
-    private func isFavoriteEvent(identifier: String) -> Bool {
-        if let value = sgCacheManager[identifier] {
-            if let isFav = try? JSONDecoder().decode(Bool.self, from: value) {
-                return isFav
-            }
-        }
-        return false
-    }
-}
