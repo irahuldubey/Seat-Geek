@@ -9,7 +9,7 @@
 import Foundation
 
 // Reference: https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
-public enum SGServiceErrorCodes: Int {
+public enum SGServiceErrorCodes {
   
   case informational
   case successful
