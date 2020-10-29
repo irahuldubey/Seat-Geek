@@ -18,14 +18,19 @@ final public class SGServiceConfiguration {
     public var eventId: String?
     public var queryString: String?
     public var queryParams: [String: String]?
-    
     public var serviceType: SeatGeekServiceType
     
     private var path: String {
         if serviceType == .searchQuery {
             return "/\(version)/\(endpoints)"
         }
-        return "/\(version)/\(endpoints)/\(self.eventId!)"
+        
+        if serviceType == .detailsEvent,
+            let eventId = self.eventId {
+            return "/\(version)/\(endpoints)/\(eventId)"
+        }
+        
+        return ""
     }
     
     private var scheme: String {
@@ -69,4 +74,3 @@ final public class SGServiceConfiguration {
         return nil
     }
 }
-

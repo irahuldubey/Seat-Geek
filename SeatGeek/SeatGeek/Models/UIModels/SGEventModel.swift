@@ -1,5 +1,5 @@
 //
-//  EventModel.swift
+//  SGEventModel.swift
 //  SeatGeek
 //
 //  Created by Rahul Dubey on 10/25/20.
@@ -9,7 +9,7 @@
 import Foundation
 
 // Model what is needed for the UI
-public struct EventModel {
+public struct SGEventModel {
     let identifier: String
     let title: String
     let shortTitle: String

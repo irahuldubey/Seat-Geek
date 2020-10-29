@@ -1,5 +1,5 @@
 //
-//  SBMemoryCacheProvider.swift
+//  SGMemoryCacheProvider.swift
 //  SeatGeek
 //
 //  Created by Rahul Dubey on 10/27/20.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class SBMemoryCacheProvider: SBCacheProviderProtocol {
+public class SGMemoryCacheProvider: SGCacheProviderProtocol {
     
     private let cache: NSCache<NSString, NSData> = NSCache<NSString, NSData>()
     

@@ -28,7 +28,6 @@ public final class RestServerManager {
     ///   - urlRequest: urlRequest for service
     ///   - completionHandler: is of type RestServerResultCompletionHandler
     ///   - errorHandler: Throw and Error
-    
     @discardableResult
     func makeServiceRequest(withUrlRequest urlRequest: URLRequest, completionHandler completion: @escaping RestServerResultCompletionHandler) -> URLSessionTask? {
         let dataTask = urlSession.dataTask(with: urlRequest) { (data,response,error) in

@@ -1,5 +1,5 @@
 //
-//  DetailsViewController.swift
+//  SGDetailsViewController.swift
 //  SeatGeek
 //
 //  Created by Rahul Dubey on 10/25/20.
@@ -8,17 +8,17 @@
 
 import UIKit
 
-protocol DetailViewControllerDelegate: AnyObject {
+protocol SGDetailViewControllerDelegate: AnyObject {
     func updateFavoriteEvent(withIdentifier id: String, isFavorite: Bool)
 }
 
-final public class DetailsViewController: UIViewController {
+final public class SGDetailsViewController: UIViewController {
     
-    private var eventModel: EventModel?
+    private var eventModel: SGEventModel?
     private var selectedEventId: String?
-    private var detailsViewModel: DetailsViewModel?
+    private var detailsViewModel: SGDetailsViewModel?
     private var sbService: SGServiceAPI?
-    weak var detailDelegate: DetailViewControllerDelegate?
+    weak var detailDelegate: SGDetailViewControllerDelegate?
     
     @IBOutlet weak var activitiyIndicator: UIActivityIndicatorView!
     @IBOutlet weak var location: UILabel!
@@ -38,7 +38,7 @@ final public class DetailsViewController: UIViewController {
     }
     
     private func initialize() {
-        self.detailsViewModel = DetailsViewModel(delegate: self)
+        self.detailsViewModel = SGDetailsViewModel(delegate: self)
         self.sbService = SGService()
     }
     
@@ -64,7 +64,7 @@ final public class DetailsViewController: UIViewController {
 
 //MARK: Favorite Action
 
-extension DetailsViewController {
+extension SGDetailsViewController {
     
     @IBAction func toogleFavoriteEvent() {
 
@@ -87,9 +87,9 @@ extension DetailsViewController {
 
 // MARK: DetailsViewModelDelegate
 
-extension DetailsViewController: SGAlertAction, DetailsViewModelDelegate {
+extension SGDetailsViewController: SGAlertAction, SGDetailsViewModelDelegate {
     
-    func onFetchSuccess(with event: EventModel) {
+    func onFetchSuccess(with event: SGEventModel) {
         self.activitiyIndicator.stopAnimating()
         title = event.shortTitle
         location.text = event.location

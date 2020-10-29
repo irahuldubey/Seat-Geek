@@ -1,5 +1,5 @@
 //
-//  SearchViewController.swift
+//  SGSearchViewController.swift
 //  SeatGeek
 //
 //  Created by Rahul Dubey on 10/24/20.
@@ -8,10 +8,10 @@
 
 import UIKit
 
-final class SearchViewController: UITableViewController, ActivityIndicatorProtocol {
+final class SGSearchViewController: UITableViewController, ActivityIndicatorProtocol {
     
     internal var activityIndicator = UIActivityIndicatorView()
-    private var viewModel: SearchViewModel!
+    private var viewModel: SGSearchViewModel!
     private var currentSearchText: String = ""
     
     lazy var searchController: UISearchController  = {
@@ -34,7 +34,7 @@ final class SearchViewController: UITableViewController, ActivityIndicatorProtoc
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = SearchViewModel.init(delegate: self)
+        viewModel = SGSearchViewModel(delegate: self)
         setUpView()
         setUpNavigationAndSearchBar()
     }
@@ -62,7 +62,7 @@ final class SearchViewController: UITableViewController, ActivityIndicatorProtoc
 }
 
 // MARK: TableView DataSource
-extension SearchViewController {
+extension SGSearchViewController {
     
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -82,7 +82,7 @@ extension SearchViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ReuseIdentifiers.searchResultsCell, for: indexPath) as! SearchResultCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ReuseIdentifiers.searchResultsCell, for: indexPath) as! SGSearchResultCell
         if isLoadingCell(for: indexPath) {
             // configure loading cell to show loading view like Facebook Feed...
         } else {
@@ -94,7 +94,7 @@ extension SearchViewController {
 }
 
 // MARK: - Table view delegate
-extension SearchViewController {
+extension SGSearchViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let indexValue = viewModel.event(at: indexPath.row)
         performSegue(withIdentifier: SegueIdentifiers.detail, sender: indexValue)
@@ -103,15 +103,15 @@ extension SearchViewController {
 }
 
 // MARK: UISearchBarDelegate
-extension SearchViewController:  UISearchBarDelegate {
+extension SGSearchViewController:  UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         loadSearchResults(text: searchBar.text!)
     }
 }
 
-// MARK: SearchViewModelDelegate
-extension SearchViewController: SearchViewModelDelegate, SGAlertAction {
+// MARK: SGSearchViewModelDelegate
+extension SGSearchViewController: SGSearchViewModelDelegate, SGAlertAction {
     
     func onFetchSuccess(with newIndexPathsToReload: [IndexPath]?) {
         self.removeLoadingIndicator()
@@ -145,7 +145,7 @@ extension SearchViewController: SearchViewModelDelegate, SGAlertAction {
 }
 
 // MARK: UITableViewDataSourcePrefetching
-extension SearchViewController: UITableViewDataSourcePrefetching {
+extension SGSearchViewController: UITableViewDataSourcePrefetching {
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         if indexPaths.contains(where: isLoadingCell), viewModel.currentCount > 0 {
             if !currentSearchText.isEmpty {
@@ -161,7 +161,7 @@ extension SearchViewController: UITableViewDataSourcePrefetching {
 }
 
 // MARK: Index Path Utilities
-private extension SearchViewController {
+private extension SGSearchViewController {
     func isLoadingCell(for indexPath: IndexPath) -> Bool {
         return indexPath.row >= self.viewModel.currentCount
     }
@@ -174,7 +174,7 @@ private extension SearchViewController {
 }
 
 // MARK: Navigation
-extension SearchViewController {
+extension SGSearchViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let segueId = segue.identifier else {
@@ -182,8 +182,8 @@ extension SearchViewController {
         }
         switch segueId {
         case SegueIdentifiers.detail:
-            if let detailViewController = segue.destination as? DetailsViewController,
-                let event = sender as? EventModel {
+            if let detailViewController = segue.destination as? SGDetailsViewController,
+                let event = sender as? SGEventModel {
                 detailViewController.detailDelegate = self
                 detailViewController.setUpDetailView(identifier: event.identifier)
             }
@@ -194,7 +194,7 @@ extension SearchViewController {
 }
 
 // MARK: Favorite Update
-extension SearchViewController: DetailViewControllerDelegate {
+extension SGSearchViewController: SGDetailViewControllerDelegate {
     func updateFavoriteEvent(withIdentifier id: String, isFavorite: Bool) {
         if let indexPath = viewModel.eventIndexPath(for: id, isFavorite: isFavorite) {
             self.tableView.reloadRows(at: [indexPath], with: .automatic)

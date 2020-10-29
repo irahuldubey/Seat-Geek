@@ -1,5 +1,5 @@
 //
-//  SBFileCacheProvider.swift
+//  SGFileCacheProvider.swift
 //  SeatGeek
 //
 //  Created by Rahul Dubey on 10/27/20.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class SBFileCacheProvider: SBCacheProviderProtocol {
+public class SGFileCacheProvider: SGCacheProviderProtocol {
     
     private var loggingEnabled: Bool
     private let cacheDirectory: String
@@ -28,7 +28,7 @@ public class SBFileCacheProvider: SBCacheProviderProtocol {
         do {
             data = try Data(contentsOf: path)
         } catch {
-            consoleOutput("SBFileCacheProvider - Failed to create object", error)
+            consoleOutput("SGFileCacheProvider - Failed to create object", error)
         }
         return data
     }
@@ -45,7 +45,7 @@ public class SBFileCacheProvider: SBCacheProviderProtocol {
         do {
             try newValue.write(to: path, options: .atomic)
         } catch {
-            consoleOutput("SBFileCacheProvider Failed to write data on file", error)
+            consoleOutput("SGFileCacheProvider Failed to write data on file", error)
         }
     }
     
@@ -62,7 +62,7 @@ public class SBFileCacheProvider: SBCacheProviderProtocol {
         do {
             cachesDir = try cachesDirectory()
         } catch {
-            consoleOutput("SBFileCacheProvider Cannot fetch from cache", error)
+            consoleOutput("SGFileCacheProvider Cannot fetch from cache", error)
             return nil
         }
         return cachesDir?.appendingPathComponent(escapedName)
@@ -95,7 +95,7 @@ public class SBFileCacheProvider: SBCacheProviderProtocol {
         do {
             cachesDir = try cachesDirectory()
         } catch {
-            consoleOutput("SBFileCacheProvider to fetch from dirctory", error)
+            consoleOutput("SGFileCacheProvider to fetch from dirctory", error)
             return
         }
         
@@ -106,7 +106,7 @@ public class SBFileCacheProvider: SBCacheProviderProtocol {
         do {
             try FileManager.default.removeItem(at: dir)
         } catch {
-            consoleOutput("SBFileCacheProvider deleting files from the caches directory: ", error)
+            consoleOutput("SGFileCacheProvider deleting files from the caches directory: ", error)
         }
         
     }

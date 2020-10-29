@@ -10,13 +10,13 @@
         <!--Seat Geek-->
         <scene sceneID="VdI-IH-4mi">
             <objects>
-                <tableViewController id="dMb-88-fGX" customClass="SearchViewController" customModule="SeatGeek" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="dMb-88-fGX" customClass="SGSearchViewController" customModule="SeatGeek" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="UWJ-9f-KvX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellIdentifier" rowHeight="100" id="8ku-tg-PUl" customClass="SearchResultCell" customModule="SeatGeek" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellIdentifier" rowHeight="100" id="8ku-tg-PUl" customClass="SGSearchResultCell" customModule="SeatGeek" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8ku-tg-PUl" id="G4P-rq-PU9">
@@ -101,7 +101,7 @@
         <!--Details View Controller-->
         <scene sceneID="Ipl-c0-ffS">
             <objects>
-                <viewController id="LjQ-t1-Sfk" customClass="DetailsViewController" customModule="SeatGeek" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="LjQ-t1-Sfk" customClass="SGDetailsViewController" customModule="SeatGeek" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GsB-hn-Kux">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

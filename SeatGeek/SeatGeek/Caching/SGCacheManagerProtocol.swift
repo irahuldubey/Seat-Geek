@@ -8,11 +8,11 @@
 
 import Foundation
 
-public protocol SBCacheManagerProtocol {
+public protocol SGCacheManagerProtocol {
     
-    var primaryCache: SBCacheProviderProtocol { get set }
+    var primaryCache: SGCacheProviderProtocol { get set }
     
-    var secondaryCache: SBCacheProviderProtocol? { get set }
+    var secondaryCache: SGCacheProviderProtocol? { get set }
     
     subscript(key: String) -> Data? { get set }
     

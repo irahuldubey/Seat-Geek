@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol SBCacheProviderProtocol {
+public protocol SGCacheProviderProtocol {
     
     func load(key: String) -> Data?
     

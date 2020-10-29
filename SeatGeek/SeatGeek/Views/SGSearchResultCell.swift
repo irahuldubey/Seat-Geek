@@ -1,5 +1,5 @@
 //
-//  SearchResultCell.swift
+//  SGSearchResultCell.swift
 //  SeatGeek
 //
 //  Created by Rahul Dubey on 10/25/20.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public final class SearchResultCell: UITableViewCell {
+public final class SGSearchResultCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
@@ -18,7 +18,7 @@ public final class SearchResultCell: UITableViewCell {
     @IBOutlet weak var heartImageView: UIImageView!
     
     private var sgService: SGServiceAPI = SGService()
-    private var sgCacheManager: SBCacheManagerProtocol = SBCacheManager.shared
+    private var sgCacheManager: SGCacheManagerProtocol = SGCacheManager.shared
     
     override public func awakeFromNib() {
         super.awakeFromNib()
@@ -39,7 +39,7 @@ public final class SearchResultCell: UITableViewCell {
         self.heartImageView.isHidden = true
     }
     
-    public func setUp(with event: EventModel) {
+    public func setUp(with event: SGEventModel) {
         
         self.downloadImage(with: event.imageUrl)
         
@@ -65,7 +65,7 @@ public final class SearchResultCell: UITableViewCell {
 }
 
 // MARK: isFavorite
-extension SearchResultCell {
+extension SGSearchResultCell {
     private func isFavoriteEvent(identifier: String) -> Bool {
         if let value = sgCacheManager[identifier] {
             if let isFav = try? JSONDecoder().decode(Bool.self, from: value) {

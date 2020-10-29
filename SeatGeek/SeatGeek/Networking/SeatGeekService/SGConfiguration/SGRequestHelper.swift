@@ -25,6 +25,7 @@ public struct Pagination {
     let pageLimit: String
 }
 
+// Need to make a generic class to handle the URLRequest for all the service requests
 final class SGRequestHelper {
     
     static func searchURL(with queryString: String, pagination: Pagination) -> URLRequest? {
@@ -51,6 +52,7 @@ final class SGRequestHelper {
     }
     
     static func eventDetails(with eventId: String) -> URLRequest? {
+        
         let sgServiceConfiguration = SGServiceConfiguration.init(withServiceType: .detailsEvent, eventId: eventId)
         let sgServiceURL = sgServiceConfiguration.getURL()
 
@@ -65,4 +67,3 @@ final class SGRequestHelper {
         return urlRequest
     }
 }
-

@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BB4E4DFA254697650010F8D8 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4E4DF9254697650010F8D8 /* SearchResultCell.swift */; };
-		BB4E4DFC25469C2D0010F8D8 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4E4DFB25469C2D0010F8D8 /* DetailsViewController.swift */; };
+		BB4E4DFA254697650010F8D8 /* SGSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4E4DF9254697650010F8D8 /* SGSearchResultCell.swift */; };
+		BB4E4DFC25469C2D0010F8D8 /* SGDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4E4DFB25469C2D0010F8D8 /* SGDetailsViewController.swift */; };
 		BB4E4DFE2546BC120010F8D8 /* Date+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4E4DFD2546BC120010F8D8 /* Date+Extention.swift */; };
 		BB5C537D2544F42C0023C843 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5C537C2544F42C0023C843 /* AppDelegate.swift */; };
 		BB5C537F2544F42C0023C843 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5C537E2544F42C0023C843 /* SceneDelegate.swift */; };
-		BB5C53812544F42C0023C843 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5C53802544F42C0023C843 /* SearchViewController.swift */; };
+		BB5C53812544F42C0023C843 /* SGSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5C53802544F42C0023C843 /* SGSearchViewController.swift */; };
 		BB5C53842544F42C0023C843 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB5C53822544F42C0023C843 /* Main.storyboard */; };
 		BB5C53862544F42F0023C843 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB5C53852544F42F0023C843 /* Assets.xcassets */; };
 		BB5C53892544F42F0023C843 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB5C53872544F42F0023C843 /* LaunchScreen.storyboard */; };
@@ -24,26 +24,26 @@
 		BB765A8A2546149D00EA7981 /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB765A892546149D00EA7981 /* Debouncer.swift */; };
 		BB765A8E2546923000EA7981 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB765A8D2546923000EA7981 /* UIViewController+Extension.swift */; };
 		BB765A902546941C00EA7981 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB765A8F2546941C00EA7981 /* Constants.swift */; };
-		BB91DA8F25490810008BD1B5 /* SBCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB91DA8E25490810008BD1B5 /* SBCacheManager.swift */; };
-		BB91DA9125490869008BD1B5 /* SBCacheManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB91DA9025490869008BD1B5 /* SBCacheManagerProtocol.swift */; };
-		BB91DA932549089D008BD1B5 /* SBCacheProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB91DA922549089D008BD1B5 /* SBCacheProviderProtocol.swift */; };
-		BB91DA9525490901008BD1B5 /* SBMemoryCacheProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB91DA9425490901008BD1B5 /* SBMemoryCacheProvider.swift */; };
-		BB91DA9725490940008BD1B5 /* SBFileCacheProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB91DA9625490940008BD1B5 /* SBFileCacheProvider.swift */; };
+		BB91DA8F25490810008BD1B5 /* SGCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB91DA8E25490810008BD1B5 /* SGCacheManager.swift */; };
+		BB91DA9125490869008BD1B5 /* SGCacheManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB91DA9025490869008BD1B5 /* SGCacheManagerProtocol.swift */; };
+		BB91DA932549089D008BD1B5 /* SGCacheProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB91DA922549089D008BD1B5 /* SGCacheProviderProtocol.swift */; };
+		BB91DA9525490901008BD1B5 /* SGMemoryCacheProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB91DA9425490901008BD1B5 /* SGMemoryCacheProvider.swift */; };
+		BB91DA9725490940008BD1B5 /* SGFileCacheProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB91DA9625490940008BD1B5 /* SGFileCacheProvider.swift */; };
 		BBA3EEB0254553300078F7A4 /* RestAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA3EEAF254553300078F7A4 /* RestAPIResponse.swift */; };
 		BBA3EEB32545538C0078F7A4 /* SGServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA3EEB22545538C0078F7A4 /* SGServiceAPI.swift */; };
 		BBA3EEB5254553A20078F7A4 /* SGService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA3EEB4254553A20078F7A4 /* SGService.swift */; };
 		BBA3EEB92545546C0078F7A4 /* SGServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA3EEB82545546C0078F7A4 /* SGServiceError.swift */; };
 		BBA3EEBC2545549F0078F7A4 /* SGResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA3EEBB2545549F0078F7A4 /* SGResponse.swift */; };
 		BBA3EEC025455BCD0078F7A4 /* SGRequestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA3EEBF25455BCD0078F7A4 /* SGRequestHelper.swift */; };
-		BBA3EEC22545724E0078F7A4 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA3EEC12545724E0078F7A4 /* SearchViewModel.swift */; };
+		BBA3EEC22545724E0078F7A4 /* SGSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA3EEC12545724E0078F7A4 /* SGSearchViewModel.swift */; };
 		BBA3EEC4254574C90078F7A4 /* SGServiceParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA3EEC3254574C90078F7A4 /* SGServiceParser.swift */; };
-		BBA3EEC625457E450078F7A4 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA3EEC525457E450078F7A4 /* EventModel.swift */; };
+		BBA3EEC625457E450078F7A4 /* SGEventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA3EEC525457E450078F7A4 /* SGEventModel.swift */; };
 		BBA3EECE254609110078F7A4 /* SGEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA3EECD254609110078F7A4 /* SGEvent.swift */; };
 		BBA3EED0254609230078F7A4 /* SGVenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA3EECF254609230078F7A4 /* SGVenue.swift */; };
 		BBA3EED2254609410078F7A4 /* SGPerformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA3EED1254609410078F7A4 /* SGPerformer.swift */; };
 		BBA3EED4254609E90078F7A4 /* SGServiceErrorCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA3EED3254609E90078F7A4 /* SGServiceErrorCodes.swift */; };
 		BBBED31A25494457007A3FF1 /* ImageDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBED31925494457007A3FF1 /* ImageDownloadManager.swift */; };
-		BBBED31C25494DC0007A3FF1 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBED31B25494DC0007A3FF1 /* DetailsViewModel.swift */; };
+		BBBED31C25494DC0007A3FF1 /* SGDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBED31B25494DC0007A3FF1 /* SGDetailsViewModel.swift */; };
 		BBD24F962546C0920088F749 /* SGMeta.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD24F952546C0920088F749 /* SGMeta.swift */; };
 		BBD24F9E2548B1040088F749 /* SGAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD24F9D2548B1040088F749 /* SGAlertAction.swift */; };
 /* End PBXBuildFile section */
@@ -66,13 +66,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		BB4E4DF9254697650010F8D8 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
-		BB4E4DFB25469C2D0010F8D8 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		BB4E4DF9254697650010F8D8 /* SGSearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGSearchResultCell.swift; sourceTree = "<group>"; };
+		BB4E4DFB25469C2D0010F8D8 /* SGDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGDetailsViewController.swift; sourceTree = "<group>"; };
 		BB4E4DFD2546BC120010F8D8 /* Date+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extention.swift"; sourceTree = "<group>"; };
 		BB5C53792544F42C0023C843 /* SeatGeek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeatGeek.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB5C537C2544F42C0023C843 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB5C537E2544F42C0023C843 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BB5C53802544F42C0023C843 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		BB5C53802544F42C0023C843 /* SGSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGSearchViewController.swift; sourceTree = "<group>"; };
 		BB5C53832544F42C0023C843 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BB5C53852544F42F0023C843 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB5C53882544F42F0023C843 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -89,26 +89,26 @@
 		BB765A892546149D00EA7981 /* Debouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
 		BB765A8D2546923000EA7981 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		BB765A8F2546941C00EA7981 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		BB91DA8E25490810008BD1B5 /* SBCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBCacheManager.swift; sourceTree = "<group>"; };
-		BB91DA9025490869008BD1B5 /* SBCacheManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBCacheManagerProtocol.swift; sourceTree = "<group>"; };
-		BB91DA922549089D008BD1B5 /* SBCacheProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBCacheProviderProtocol.swift; sourceTree = "<group>"; };
-		BB91DA9425490901008BD1B5 /* SBMemoryCacheProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBMemoryCacheProvider.swift; sourceTree = "<group>"; };
-		BB91DA9625490940008BD1B5 /* SBFileCacheProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBFileCacheProvider.swift; sourceTree = "<group>"; };
+		BB91DA8E25490810008BD1B5 /* SGCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGCacheManager.swift; sourceTree = "<group>"; };
+		BB91DA9025490869008BD1B5 /* SGCacheManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGCacheManagerProtocol.swift; sourceTree = "<group>"; };
+		BB91DA922549089D008BD1B5 /* SGCacheProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGCacheProviderProtocol.swift; sourceTree = "<group>"; };
+		BB91DA9425490901008BD1B5 /* SGMemoryCacheProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGMemoryCacheProvider.swift; sourceTree = "<group>"; };
+		BB91DA9625490940008BD1B5 /* SGFileCacheProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGFileCacheProvider.swift; sourceTree = "<group>"; };
 		BBA3EEAF254553300078F7A4 /* RestAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestAPIResponse.swift; sourceTree = "<group>"; };
 		BBA3EEB22545538C0078F7A4 /* SGServiceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGServiceAPI.swift; sourceTree = "<group>"; };
 		BBA3EEB4254553A20078F7A4 /* SGService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGService.swift; sourceTree = "<group>"; };
 		BBA3EEB82545546C0078F7A4 /* SGServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGServiceError.swift; sourceTree = "<group>"; };
 		BBA3EEBB2545549F0078F7A4 /* SGResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGResponse.swift; sourceTree = "<group>"; };
 		BBA3EEBF25455BCD0078F7A4 /* SGRequestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGRequestHelper.swift; sourceTree = "<group>"; };
-		BBA3EEC12545724E0078F7A4 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		BBA3EEC12545724E0078F7A4 /* SGSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGSearchViewModel.swift; sourceTree = "<group>"; };
 		BBA3EEC3254574C90078F7A4 /* SGServiceParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGServiceParser.swift; sourceTree = "<group>"; };
-		BBA3EEC525457E450078F7A4 /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
+		BBA3EEC525457E450078F7A4 /* SGEventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGEventModel.swift; sourceTree = "<group>"; };
 		BBA3EECD254609110078F7A4 /* SGEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGEvent.swift; sourceTree = "<group>"; };
 		BBA3EECF254609230078F7A4 /* SGVenue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGVenue.swift; sourceTree = "<group>"; };
 		BBA3EED1254609410078F7A4 /* SGPerformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGPerformer.swift; sourceTree = "<group>"; };
 		BBA3EED3254609E90078F7A4 /* SGServiceErrorCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGServiceErrorCodes.swift; sourceTree = "<group>"; };
 		BBBED31925494457007A3FF1 /* ImageDownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloadManager.swift; sourceTree = "<group>"; };
-		BBBED31B25494DC0007A3FF1 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
+		BBBED31B25494DC0007A3FF1 /* SGDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGDetailsViewModel.swift; sourceTree = "<group>"; };
 		BBD24F952546C0920088F749 /* SGMeta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGMeta.swift; sourceTree = "<group>"; };
 		BBD24F9D2548B1040088F749 /* SGAlertAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGAlertAction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -217,8 +217,8 @@
 		BB5C53AE2544F47B0023C843 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				BB5C53802544F42C0023C843 /* SearchViewController.swift */,
-				BB4E4DFB25469C2D0010F8D8 /* DetailsViewController.swift */,
+				BB5C53802544F42C0023C843 /* SGSearchViewController.swift */,
+				BB4E4DFB25469C2D0010F8D8 /* SGDetailsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -226,7 +226,7 @@
 		BB5C53AF2544F4910023C843 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BB4E4DF9254697650010F8D8 /* SearchResultCell.swift */,
+				BB4E4DF9254697650010F8D8 /* SGSearchResultCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -234,8 +234,8 @@
 		BB5C53B02544F4960023C843 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				BBA3EEC12545724E0078F7A4 /* SearchViewModel.swift */,
-				BBBED31B25494DC0007A3FF1 /* DetailsViewModel.swift */,
+				BBA3EEC12545724E0078F7A4 /* SGSearchViewModel.swift */,
+				BBBED31B25494DC0007A3FF1 /* SGDetailsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -300,10 +300,10 @@
 		BB91DA8D25490607008BD1B5 /* Caching */ = {
 			isa = PBXGroup;
 			children = (
-				BB91DA9025490869008BD1B5 /* SBCacheManagerProtocol.swift */,
-				BB91DA922549089D008BD1B5 /* SBCacheProviderProtocol.swift */,
-				BB91DA9425490901008BD1B5 /* SBMemoryCacheProvider.swift */,
-				BB91DA9625490940008BD1B5 /* SBFileCacheProvider.swift */,
+				BB91DA9025490869008BD1B5 /* SGCacheManagerProtocol.swift */,
+				BB91DA922549089D008BD1B5 /* SGCacheProviderProtocol.swift */,
+				BB91DA9425490901008BD1B5 /* SGMemoryCacheProvider.swift */,
+				BB91DA9625490940008BD1B5 /* SGFileCacheProvider.swift */,
 			);
 			path = Caching;
 			sourceTree = "<group>";
@@ -367,7 +367,7 @@
 		BBA3EED725460EE30078F7A4 /* UIModels */ = {
 			isa = PBXGroup;
 			children = (
-				BBA3EEC525457E450078F7A4 /* EventModel.swift */,
+				BBA3EEC525457E450078F7A4 /* SGEventModel.swift */,
 			);
 			path = UIModels;
 			sourceTree = "<group>";
@@ -375,7 +375,7 @@
 		BBBED3182549443D007A3FF1 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				BB91DA8E25490810008BD1B5 /* SBCacheManager.swift */,
+				BB91DA8E25490810008BD1B5 /* SGCacheManager.swift */,
 				BBBED31925494457007A3FF1 /* ImageDownloadManager.swift */,
 			);
 			path = Manager;
@@ -514,26 +514,26 @@
 			files = (
 				BBD24F962546C0920088F749 /* SGMeta.swift in Sources */,
 				BB5C53BC2544F5AB0023C843 /* RestServerManager.swift in Sources */,
-				BB91DA9125490869008BD1B5 /* SBCacheManagerProtocol.swift in Sources */,
-				BB91DA9525490901008BD1B5 /* SBMemoryCacheProvider.swift in Sources */,
+				BB91DA9125490869008BD1B5 /* SGCacheManagerProtocol.swift in Sources */,
+				BB91DA9525490901008BD1B5 /* SGMemoryCacheProvider.swift in Sources */,
 				BB5C53B82544F5730023C843 /* RestConfiguration.swift in Sources */,
 				BBBED31A25494457007A3FF1 /* ImageDownloadManager.swift in Sources */,
 				BB765A8A2546149D00EA7981 /* Debouncer.swift in Sources */,
 				BBA3EED4254609E90078F7A4 /* SGServiceErrorCodes.swift in Sources */,
 				BBA3EECE254609110078F7A4 /* SGEvent.swift in Sources */,
 				BB765A902546941C00EA7981 /* Constants.swift in Sources */,
-				BB91DA9725490940008BD1B5 /* SBFileCacheProvider.swift in Sources */,
+				BB91DA9725490940008BD1B5 /* SGFileCacheProvider.swift in Sources */,
 				BBA3EEB92545546C0078F7A4 /* SGServiceError.swift in Sources */,
-				BBA3EEC625457E450078F7A4 /* EventModel.swift in Sources */,
-				BB4E4DFC25469C2D0010F8D8 /* DetailsViewController.swift in Sources */,
-				BB91DA8F25490810008BD1B5 /* SBCacheManager.swift in Sources */,
-				BB5C53812544F42C0023C843 /* SearchViewController.swift in Sources */,
+				BBA3EEC625457E450078F7A4 /* SGEventModel.swift in Sources */,
+				BB4E4DFC25469C2D0010F8D8 /* SGDetailsViewController.swift in Sources */,
+				BB91DA8F25490810008BD1B5 /* SGCacheManager.swift in Sources */,
+				BB5C53812544F42C0023C843 /* SGSearchViewController.swift in Sources */,
 				BBD24F9E2548B1040088F749 /* SGAlertAction.swift in Sources */,
-				BBA3EEC22545724E0078F7A4 /* SearchViewModel.swift in Sources */,
+				BBA3EEC22545724E0078F7A4 /* SGSearchViewModel.swift in Sources */,
 				BBA3EED2254609410078F7A4 /* SGPerformer.swift in Sources */,
 				BB5C537D2544F42C0023C843 /* AppDelegate.swift in Sources */,
 				BB765A8E2546923000EA7981 /* UIViewController+Extension.swift in Sources */,
-				BB91DA932549089D008BD1B5 /* SBCacheProviderProtocol.swift in Sources */,
+				BB91DA932549089D008BD1B5 /* SGCacheProviderProtocol.swift in Sources */,
 				BBA3EEC4254574C90078F7A4 /* SGServiceParser.swift in Sources */,
 				BB4E4DFE2546BC120010F8D8 /* Date+Extention.swift in Sources */,
 				BBA3EEB0254553300078F7A4 /* RestAPIResponse.swift in Sources */,
@@ -543,8 +543,8 @@
 				BB5C53BE2544F5EE0023C843 /* SGServiceConfiguration.swift in Sources */,
 				BBA3EEBC2545549F0078F7A4 /* SGResponse.swift in Sources */,
 				BBA3EEC025455BCD0078F7A4 /* SGRequestHelper.swift in Sources */,
-				BBBED31C25494DC0007A3FF1 /* DetailsViewModel.swift in Sources */,
-				BB4E4DFA254697650010F8D8 /* SearchResultCell.swift in Sources */,
+				BBBED31C25494DC0007A3FF1 /* SGDetailsViewModel.swift in Sources */,
+				BB4E4DFA254697650010F8D8 /* SGSearchResultCell.swift in Sources */,
 				BBA3EED0254609230078F7A4 /* SGVenue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

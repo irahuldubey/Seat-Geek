@@ -1,5 +1,5 @@
 //
-//  SearchViewModel.swift
+//  SBSearchViewModel.swift
 //  SeatGeek
 //
 //  Created by Rahul Dubey on 10/25/20.
@@ -9,16 +9,16 @@
 import Foundation
 import UIKit
 
-protocol SearchViewModelDelegate: class {
+protocol SGSearchViewModelDelegate: class {
     func onFetchSuccess(with newIndexPathsToReload: [IndexPath]?)
     func onFetchFailure(with error: String)
 }
 
-internal final class SearchViewModel {
+internal final class SGSearchViewModel {
     
-    private weak var delegate: SearchViewModelDelegate?
-    private var sbCacheManager: SBCacheManagerProtocol?
-    private var eventResult =  [EventModel]()
+    private weak var delegate: SGSearchViewModelDelegate?
+    private var sbCacheManager: SGCacheManagerProtocol?
+    private var eventResult =  [SGEventModel]()
     
     private var isFetchInProgress = false
     
@@ -35,8 +35,8 @@ internal final class SearchViewModel {
     //MARK: - Initializer
     
     init(withAPI sgService: SGServiceAPI = SGService(),
-         delegate: SearchViewModelDelegate,
-         sbCacheManager: SBCacheManagerProtocol = SBCacheManager.shared) {
+         delegate: SGSearchViewModelDelegate,
+         sbCacheManager: SGCacheManagerProtocol = SGCacheManager.shared) {
         self.sgService = sgService
         self.delegate = delegate
         self.sbCacheManager = sbCacheManager
@@ -50,7 +50,7 @@ internal final class SearchViewModel {
         return self.eventResult.count
     }
     
-    func event(at index: Int) -> EventModel {
+    func event(at index: Int) -> SGEventModel {
         return self.eventResult[index]
     }
     
@@ -58,7 +58,7 @@ internal final class SearchViewModel {
     func eventIndexPath(for identifier: String, isFavorite: Bool) -> IndexPath? {
         for (index, value) in  eventResult.enumerated() {
             if value.identifier == identifier {
-                let eventModel = EventModel.init(identifier: value.identifier,
+                let eventModel = SGEventModel.init(identifier: value.identifier,
                                                  title: value.title,
                                                  shortTitle: value.shortTitle,
                                                  location: value.location,
@@ -168,10 +168,10 @@ internal final class SearchViewModel {
         }
     }
     
-    private func massageEventData(response eventObj: SGResponse) -> [EventModel] {
+    private func massageEventData(response eventObj: SGResponse) -> [SGEventModel] {
         let events = eventObj.events
-        let compactEvents = events.compactMap { (event) -> EventModel? in
-            return EventModel(identifier: String(event.identifier),
+        let compactEvents = events.compactMap { (event) -> SGEventModel? in
+            return SGEventModel(identifier: String(event.identifier),
                               title: event.title,
                               shortTitle: event.shortTitle,
                               location: event.venue.displayLocation,
@@ -182,7 +182,7 @@ internal final class SearchViewModel {
         return compactEvents
     }
     
-    private func calculateIndexPathsToReload(from event: [EventModel]) -> [IndexPath] {
+    private func calculateIndexPathsToReload(from event: [SGEventModel]) -> [IndexPath] {
         let startIndex = eventResult.count - event.count
         let endIndex = startIndex + event.count
         return (startIndex..<endIndex).map { IndexPath(row: $0, section: 0) }
@@ -192,11 +192,9 @@ internal final class SearchViewModel {
         guard let cacheManager = sbCacheManager else {
             return false
         }
-        
         if let value = cacheManager[identifier], let isFav = try? JSONDecoder().decode(Bool.self, from: value)  {
             return isFav
         }
-        
         return false
     }
 }

@@ -9,25 +9,24 @@
 import Foundation
 import UIKit
 
-protocol DetailsViewModelDelegate: class {
-    func onFetchSuccess(with event: EventModel)
+protocol SGDetailsViewModelDelegate: class {
+    func onFetchSuccess(with event: SGEventModel)
     func onFetchFailure(with error: String)
 }
 
-internal final class DetailsViewModel {
+internal final class SGDetailsViewModel {
     
-    private weak var delegate: DetailsViewModelDelegate?
-    private var sgCacheManager: SBCacheManagerProtocol?
+    private weak var delegate: SGDetailsViewModelDelegate?
+    private var sgCacheManager: SGCacheManagerProtocol?
 
-    private var eventResult =  [EventModel]()
+    private var eventResult =  [SGEventModel]()
     private let sgService: SGServiceAPI
 
-    
     //MARK: - Initializer
     
     init(withAPI sgService: SGServiceAPI = SGService(),
-         delegate: DetailsViewModelDelegate,
-         cacheManager: SBCacheManagerProtocol = SBCacheManager.shared) {
+         delegate: SGDetailsViewModelDelegate,
+         cacheManager: SGCacheManagerProtocol = SGCacheManager.shared) {
         self.sgService = sgService
         self.delegate = delegate
         self.sgCacheManager = cacheManager
@@ -42,7 +41,7 @@ internal final class DetailsViewModel {
                 switch response {
                 case .success(response: let eventResponse):
                     DispatchQueue.main.async {
-                        let eventModel = EventModel.init(identifier: String(eventResponse.identifier),
+                        let eventModel = SGEventModel.init(identifier: String(eventResponse.identifier),
                                                          title: eventResponse.title,
                                                          shortTitle: eventResponse.shortTitle,
                                                          location: eventResponse.venue.displayLocation,

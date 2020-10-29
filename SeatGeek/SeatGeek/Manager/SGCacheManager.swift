@@ -8,12 +8,12 @@
 
 import Foundation
 
-public class SBCacheManager: SBCacheManagerProtocol {
+public class SGCacheManager: SGCacheManagerProtocol {
     
-    public static let shared: SBCacheManagerProtocol = SBCacheManager()
+    public static let shared: SGCacheManagerProtocol = SGCacheManager()
     
-    public var primaryCache: SBCacheProviderProtocol = SBMemoryCacheProvider()
-    public var secondaryCache: SBCacheProviderProtocol? = SBFileCacheProvider(cacheDir: "FavoriteDirectory")
+    public var primaryCache: SGCacheProviderProtocol = SGMemoryCacheProvider()
+    public var secondaryCache: SGCacheProviderProtocol? = SGFileCacheProvider(cacheDir: "FavoriteDirectory")
     
     public subscript(key: String) -> Data? {
         get {

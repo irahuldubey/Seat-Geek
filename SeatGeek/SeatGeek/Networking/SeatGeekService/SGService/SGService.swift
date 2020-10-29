@@ -13,10 +13,14 @@ public final class SGService: SGServiceAPI {
     private var serverManager: RestServerManager!
     private var apiServiceTask: URLSessionTask?
     
+    // intializer - manager: is of type RestServerManager
     public init(with manager: RestServerManager = RestServerManager()) {
         serverManager = manager
     }
 
+    // queryString: is of type String
+    // pagination: is of type Pagination
+    // completionHandler: is of type Result <SGResponse, SGServiceError>
     public func fetchEvent(withQuery queryString: String, pagination: Pagination, withCompletionHandler completion: @escaping (Result<SGResponse, SGServiceError>)-> ()) throws -> Void {
 
         guard queryString.count > 0 else { return }
@@ -50,6 +54,8 @@ public final class SGService: SGServiceAPI {
         }
     }
     
+    // eventId: is of type String
+    // completionHandler: is of type Result <SGEvent, SGServiceError>
     public func fetchEventDetails(with eventId: String, withCompletionHandler completionHandler:  @escaping (Result<SGEvent, SGServiceError>) -> Void)  {
         
         guard eventId.count > 0 else { return }
@@ -79,6 +85,8 @@ public final class SGService: SGServiceAPI {
         })
     }
     
+    // urlString: is of type String
+    // completionHandler: is of type Date
     public func fetchImage(with urlString: String, completionHandler completion: @escaping (Data?) -> ()) throws -> Void {
 
         guard let url = URL.init(string: urlString) else {
