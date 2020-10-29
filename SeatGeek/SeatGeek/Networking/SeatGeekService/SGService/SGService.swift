@@ -10,7 +10,7 @@ import Foundation
 
 public final class SGService: SGServiceAPI {
     
-    private var serverManager: RestServerManager!
+    private let serverManager: RestServerManager!
     private var apiServiceTask: URLSessionTask?
     
     // intializer - manager: is of type RestServerManager
