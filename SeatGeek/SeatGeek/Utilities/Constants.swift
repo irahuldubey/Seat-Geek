@@ -34,9 +34,3 @@ struct Message {
 struct NavigationItemIdentifier {
   static let clear = "Clear"
 }
-
-struct CustomColors {
-    static let searchBarBackgroundColor = UIColor(red: 15.0/255.0, green: 36.0/255.0, blue: 54.0/255.0, alpha: 1.0)
-    static let searchBarTextBackgroundColor = UIColor(red: 31.0/255.0, green: 54.0/255.0, blue: 70.0/255.0, alpha: 1.0)
-}
-
