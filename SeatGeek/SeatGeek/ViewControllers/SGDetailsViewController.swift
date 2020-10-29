@@ -28,9 +28,9 @@ final public class SGDetailsViewController: UIViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
         
-        initialize()
-        loadData()
-        updateViews()
+        self.initialize()
+        self.loadData()
+        self.updateViews()
     }
     
     public func setUpDetailView(identifier: String) {
@@ -72,13 +72,14 @@ extension SGDetailsViewController {
             let eventSelected = self.selectedEventId
             else { return }
         
-        detailsViewModel.toggleFavorite(eventWith: eventSelected) { (isFavorited) in
+        detailsViewModel.toggleFavorite(eventWith: eventSelected) { [weak self] (isFavorited) in
+            guard let self = self else { return }
             if isFavorited {
                 navigationItem.rightBarButtonItem?.tintColor = .red
-                detailDelegate?.updateFavoriteEvent(withIdentifier: eventSelected, isFavorite: true)
+                self.detailDelegate?.updateFavoriteEvent(withIdentifier: eventSelected, isFavorite: true)
             } else {
                 navigationItem.rightBarButtonItem?.tintColor = .gray
-                detailDelegate?.updateFavoriteEvent(withIdentifier: eventSelected, isFavorite: false)
+                self.detailDelegate?.updateFavoriteEvent(withIdentifier: eventSelected, isFavorite: false)
             }
         }
     }
