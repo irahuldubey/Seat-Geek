@@ -59,12 +59,12 @@ internal final class SGSearchViewModel {
         for (index, value) in  eventResult.enumerated() {
             if value.identifier == identifier {
                 let eventModel = SGEventModel.init(identifier: value.identifier,
-                                                 title: value.title,
-                                                 shortTitle: value.shortTitle,
-                                                 location: value.location,
-                                                 date: value.date,
-                                                 imageUrl: value.imageUrl,
-                                                 isFavorite: isFavorite)
+                                                   title: value.title,
+                                                   shortTitle: value.shortTitle,
+                                                   location: value.location,
+                                                   date: value.date,
+                                                   imageUrl: value.imageUrl,
+                                                   isFavorite: isFavorite)
                 eventResult.remove(at: index)
                 eventResult.insert(eventModel, at: index)
                 return IndexPath.init(row: index, section: 0)
@@ -96,7 +96,8 @@ internal final class SGSearchViewModel {
         // Throttle for 200ms, this is usualy done to avoid extra search query item if user is not interested in those keywords
         debounce.dispatchDebounce {
             do {
-                try self.sgService.fetchEvent(withQuery: query, pagination: pagination, withCompletionHandler: { (result) in
+                try self.sgService.fetchEvent(withQuery: query, pagination: pagination, withCompletionHandler: { [weak self] (result) in
+                    guard let self = self else { return }
                     switch(result) {
                     case .success(let eventResponse):
                         // Increase the current page count to 2 in the first fetch
@@ -105,12 +106,14 @@ internal final class SGSearchViewModel {
                         self.totalCount = eventResponse.meta?.total ?? 0
                         let eventList = self.massageEventData(response: eventResponse)
                         self.eventResult.append(contentsOf: eventList)
-                        DispatchQueue.main.async {
+                        DispatchQueue.main.async { [weak self] in
+                            guard let self = self else { return }
                             self.delegate?.onFetchSuccess(with: .none)
                         }
                     case .failure(let error):
                         self.isFetchInProgress = false
-                        DispatchQueue.main.async {
+                        DispatchQueue.main.async { [weak self] in
+                            guard let self = self else { return }
                             self.delegate?.onFetchFailure(with: error.displayError)
                         }
                     }
@@ -130,14 +133,15 @@ internal final class SGSearchViewModel {
         guard !self.currentSearchText.isEmpty else { return }
         
         isFetchInProgress = true
-
+        
         // When we have less than page limits set the limit what is remaining items than 20 items
         let pageDifference = self.totalCount - self.currentCount
         let pageTotal = (pageDifference > 20) ? DEFAULT_LIMIT : String(pageDifference)
         let pagination: Pagination = Pagination(pageNumber: String(self.currentPage), pageLimit: pageTotal)
-
+        
         do {
-            try self.sgService.fetchEvent(withQuery: self.currentSearchText, pagination: pagination, withCompletionHandler: { (result) in
+            try self.sgService.fetchEvent(withQuery: self.currentSearchText, pagination: pagination, withCompletionHandler: { [weak self] (result) in
+                guard let self = self else { return }
                 switch(result) {
                 case .success(let eventResponse):
                     self.currentPage += 1
@@ -148,7 +152,8 @@ internal final class SGSearchViewModel {
                     
                     // For pagination page is greater than 1
                     if let page = eventResponse.meta?.page, page > 1 {
-                        DispatchQueue.main.async {
+                        DispatchQueue.main.async { [weak self] in
+                            guard let self = self else { return }
                             let indexPathsToReload = self.calculateIndexPathsToReload(from: eventList)
                             self.delegate?.onFetchSuccess(with: indexPathsToReload)
                         }
@@ -172,12 +177,12 @@ internal final class SGSearchViewModel {
         let events = eventObj.events
         let compactEvents = events.compactMap { (event) -> SGEventModel? in
             return SGEventModel(identifier: String(event.identifier),
-                              title: event.title,
-                              shortTitle: event.shortTitle,
-                              location: event.venue.displayLocation,
-                              date: event.datetime,
-                              imageUrl: event.performers?.first?.image ?? "",
-                              isFavorite: isFavoriteEvent(identifier: String(event.identifier))
+                                title: event.title,
+                                shortTitle: event.shortTitle,
+                                location: event.venue.displayLocation,
+                                date: event.datetime,
+                                imageUrl: event.performers?.first?.image ?? "",
+                                isFavorite: isFavoriteEvent(identifier: String(event.identifier))
             )}
         return compactEvents
     }

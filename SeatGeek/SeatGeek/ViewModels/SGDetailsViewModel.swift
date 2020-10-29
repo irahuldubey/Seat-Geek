@@ -18,10 +18,10 @@ internal final class SGDetailsViewModel {
     
     private weak var delegate: SGDetailsViewModelDelegate?
     private var sgCacheManager: SGCacheManagerProtocol?
-
+    
     private var eventResult =  [SGEventModel]()
     private let sgService: SGServiceAPI
-
+    
     //MARK: - Initializer
     
     init(withAPI sgService: SGServiceAPI = SGService(),
@@ -31,23 +31,24 @@ internal final class SGDetailsViewModel {
         self.delegate = delegate
         self.sgCacheManager = cacheManager
     }
-
+    
     func fetchEventDetails(with identifier: String) {
         
         guard identifier.count > 0  else { return }
         
         do {
-            try sgService.fetchEventDetails(with: identifier) { (response) in
+            try sgService.fetchEventDetails(with: identifier) { [weak self] (response) in
+                guard let self = self else { return }
                 switch response {
                 case .success(response: let eventResponse):
                     DispatchQueue.main.async {
                         let eventModel = SGEventModel.init(identifier: String(eventResponse.identifier),
-                                                         title: eventResponse.title,
-                                                         shortTitle: eventResponse.shortTitle,
-                                                         location: eventResponse.venue.displayLocation,
-                                                         date: eventResponse.datetime,
-                                                         imageUrl: eventResponse.performers?.first?.image ?? "",
-                                                         isFavorite: self.isFavoriteEvent(identifier: String(eventResponse.identifier)))
+                                                           title: eventResponse.title,
+                                                           shortTitle: eventResponse.shortTitle,
+                                                           location: eventResponse.venue.displayLocation,
+                                                           date: eventResponse.datetime,
+                                                           imageUrl: eventResponse.performers?.first?.image ?? "",
+                                                           isFavorite: self.isFavoriteEvent(identifier: String(eventResponse.identifier)))
                         self.delegate?.onFetchSuccess(with: eventModel)
                     }
                 case .failure(error: let error):
@@ -62,17 +63,17 @@ internal final class SGDetailsViewModel {
     }
     
     private func isFavoriteEvent(identifier: String) -> Bool {
-           guard let cacheManager = sgCacheManager else {
-               return false
-           }
-           
-           if let value = cacheManager[identifier] {
-               if let isFav = try? JSONDecoder().decode(Bool.self, from: value) {
-                   return isFav
-               }
-           }
-           
-           return false
+        guard let cacheManager = sgCacheManager else {
+            return false
+        }
+        
+        if let value = cacheManager[identifier] {
+            if let isFav = try? JSONDecoder().decode(Bool.self, from: value) {
+                return isFav
+            }
+        }
+        
+        return false
     }
     
     func toggleFavorite(eventWith identifier: String, withCompletionHandler completion: (Bool) -> ()) {
