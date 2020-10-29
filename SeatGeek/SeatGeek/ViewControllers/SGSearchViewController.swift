@@ -66,10 +66,7 @@ final class SGSearchViewController: UITableViewController, ActivityIndicatorProt
 extension SGSearchViewController {
     
     // MARK: - Table view data source
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
+
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return self.tableView(tableView, heightForRowAt: indexPath)
     }
