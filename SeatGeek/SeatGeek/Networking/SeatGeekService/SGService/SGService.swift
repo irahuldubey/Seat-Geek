@@ -34,9 +34,14 @@ public final class SGService: SGServiceAPI {
             case .success(data: let data):
                 guard let data = data else { return }
                 let serviceResponse = SGServiceParser.parseEventsJSON(data: data)!
-                completion(.success(response: serviceResponse))
-            case .failure(error: _):
-                completion(.failure(error: nil))
+                completion(.success(response: serviceResponse))            
+            case .failure(error: let error):
+                if let nsError = error as NSError? {
+                    let errorObj = SGServiceError.init(with: nsError.code, errorDescription: nsError.description)
+                    completion(.failure(error: errorObj))
+                } else {
+                    completion(.failure(error: SGServiceError.init(with: 0, errorDescription: "Unable to receive error message")))
+                }
             }
         }
     }
@@ -55,9 +60,13 @@ public final class SGService: SGServiceAPI {
                 guard let data = data else { return }
                 let serviceResponse = SGServiceParser.parseEventJSON(data: data)!
                 completionHandler(.success(serviceResponse))
-            case .failure(error: _):
-                let errorObj = SGServiceError.init(with: 400, errorDescription: "Failed to Load")
-                completionHandler(.failure(errorObj))
+            case .failure(error: let error):
+                if let nsError = error as NSError? {
+                    let errorObj = SGServiceError.init(with: nsError.code, errorDescription: nsError.description)
+                    completionHandler(.failure(errorObj))
+                } else {
+                    completionHandler(.failure(SGServiceError.init(with: 0, errorDescription: "Unable to receive error message")))
+                }
             }
         })
     }

@@ -22,6 +22,16 @@ final class SearchViewController: UITableViewController, ActivityIndicatorProtoc
         return searchController
     }()
     
+    lazy var messageLabel: UILabel = {
+      let rect = CGRect(x: 0, y: 0, width: tableView.bounds.size.width,
+                        height: tableView.bounds.size.height)
+      let welcomeMessageLabel: UILabel = UILabel(frame: rect)
+        welcomeMessageLabel.font = UIFont.boldSystemFont(ofSize: 15)
+      welcomeMessageLabel.textColor = .black
+      welcomeMessageLabel.textAlignment = .center
+      return welcomeMessageLabel
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = SearchViewModel.init(delegate: self)
@@ -117,9 +127,10 @@ extension SearchViewController: SearchViewModelDelegate, SGAlertAction {
     
     func onFetchFailure(with error: String) {
         self.removeLoadingIndicator()
-        
-        let action = UIAlertAction(title: Message.alert, style: .default)
-        self.displayAlert(with: Message.ok , message: error, actions: [action])
+        self.tableView.reloadData()
+        self.messageLabel.text = error
+        self.tableView.backgroundView = messageLabel
+        self.tableView.separatorStyle = .none
     }
     
     func loadSearchResults(text: String?) {

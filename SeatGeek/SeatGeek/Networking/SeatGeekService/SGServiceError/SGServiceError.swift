@@ -15,14 +15,20 @@ public struct SGServiceError: Error {
   
   public var displayError: String {
     get {
-      switch errorCode {
-      case 404:
-        return SGServiceErrorCodes.invalidQuery.displayMessage
-      case 400:
-        return SGServiceErrorCodes.invalidParameters.displayMessage
-      default:
-        return errorDescription //Handle other cases as well as of now display Error Description as default
-      }
+        switch errorCode {
+        case 100...199:
+            return SGServiceErrorCodes.informational.displayMessage
+        case 200...299:
+            return SGServiceErrorCodes.successful.displayMessage
+        case 300...399:
+            return SGServiceErrorCodes.redirection.displayMessage
+        case 400...499:
+            return SGServiceErrorCodes.clientError.displayMessage
+        case 500...599: // We can add retries if the server request fails
+            return SGServiceErrorCodes.serverError.displayMessage
+        default:
+            return SGServiceErrorCodes.genericError.displayMessage
+        }
     }
   }
   
@@ -31,3 +37,5 @@ public struct SGServiceError: Error {
     self.errorDescription = errorDescription
   }
 }
+
+

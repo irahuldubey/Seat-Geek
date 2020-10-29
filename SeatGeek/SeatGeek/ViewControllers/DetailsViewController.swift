@@ -100,7 +100,7 @@ extension DetailsViewController: SGAlertAction, DetailsViewModelDelegate {
     
     func onFetchFailure(with error: String) {
         self.activitiyIndicator.stopAnimating()
-        let action = UIAlertAction(title: Message.alert, style: .default)
-        self.displayAlert(with: Message.ok , message: error, actions: [action])
+        let action = UIAlertAction(title: Message.ok, style: .default)
+        self.displayAlert(with: Message.detailsAlert , message: error, actions: [action])
     }
 }

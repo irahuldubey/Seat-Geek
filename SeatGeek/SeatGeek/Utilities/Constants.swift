@@ -22,6 +22,7 @@ struct ReuseIdentifiers {
 //MARK: - Message Strings
 struct Message {
   static let alert = "Search Result Error"
+  static let detailsAlert = "Unable to fetch event details"
   static let ok = "OK"
   static let beginSearch = "Let's begin search"
   static let noResult = "No Result Found"

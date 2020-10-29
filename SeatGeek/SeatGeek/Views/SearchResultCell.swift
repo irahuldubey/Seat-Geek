@@ -48,9 +48,7 @@ public final class SearchResultCell: UITableViewCell {
             self.titleLabel.text = event.title
             self.locationLabel.text = event.location
             self.timeLabel.text = Date.formatDateDisplayValueFrom(string: event.date)?.formatInDayMonthYearValue()
-            // Once we update the Favorite state in Detail View Controller we need to update the previous list page cells
-            // This can be done via bindings, notifications, delegates, SharedManager etc, I chose Delegation for simplicty of the problem
-            self.heartImageView.isHidden = !event.isFavorite || !self.isFavoriteEvent(identifier: event.identifier)
+            self.heartImageView.isHidden = !event.isFavorite
         }
     }
     

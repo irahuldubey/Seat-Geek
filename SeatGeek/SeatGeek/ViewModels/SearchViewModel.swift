@@ -54,9 +54,19 @@ internal final class SearchViewModel {
         return self.eventResult[index]
     }
     
+    // Update the data source in this class and pass the index path to the view controller to update the search results viewcontroller
     func eventIndexPath(for identifier: String, isFavorite: Bool) -> IndexPath? {
         for (index, value) in  eventResult.enumerated() {
             if value.identifier == identifier {
+                let eventModel = EventModel.init(identifier: value.identifier,
+                                                 title: value.title,
+                                                 shortTitle: value.shortTitle,
+                                                 location: value.location,
+                                                 date: value.date,
+                                                 imageUrl: value.imageUrl,
+                                                 isFavorite: isFavorite)
+                eventResult.remove(at: index)
+                eventResult.insert(eventModel, at: index)
                 return IndexPath.init(row: index, section: 0)
             }
         }

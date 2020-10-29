@@ -8,17 +8,27 @@
 
 import Foundation
 
+// Reference: https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
 public enum SGServiceErrorCodes: Int {
   
-  case invalidQuery = 404
-  case invalidParameters = 400
-  case defaultError
+  case informational
+  case successful
+  case redirection
+  case clientError
+  case serverError
+  case genericError
   
   var displayMessage: String {
     switch self {
-    case .defaultError: return "Unable to get data, please try later"
-    case .invalidParameters: return "Invalid Parameters"
-    case .invalidQuery: return "Invalid Query"
+        case .informational: return "The request was received, continuing process"
+        case .successful: return "Invalid Parameters"
+        case .redirection: return "Further action needs to be taken in order to complete the request"
+        case .clientError: return "The request contains bad syntax or cannot be fulfilled"
+        case .serverError: return "The server failed to fulfil an apparently valid request"
+        case .genericError: return "Could not complete request"
     }
   }
 }
+
+
+
