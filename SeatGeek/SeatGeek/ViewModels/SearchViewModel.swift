@@ -99,6 +99,8 @@ internal final class SearchViewModel {
                 try self.sgService.fetchEvent(withQuery: query, pagination: pagination, withCompletionHandler: { (result) in
                     switch(result) {
                     case .success(let eventResponse):
+                        // Increase the current page count to 2 in the first fetch
+                        self.currentPage += 1
                         self.isFetchInProgress = false
                         self.totalCount = eventResponse.meta?.total ?? 0
                         let eventList = self.massageEventData(response: eventResponse)
